@@ -1,8 +1,9 @@
 import { expect, type Locator, type Page } from '@playwright/test';
-import config from './config.json';
+import config from '../config.json';
 
 
 export class DotaTestPage {
+  
   readonly page: Page;
   readonly heroesLink: Locator;
   readonly heroesHeader: Locator;
@@ -36,7 +37,7 @@ export class DotaTestPage {
     await this.page.goto(await this.envSetup());
   }
 
-  async getStarted() {
+  async heroesPageNav() {
     await this.heroesLink.click();
     await expect(this.heroesHeader).toBeVisible();
   }
